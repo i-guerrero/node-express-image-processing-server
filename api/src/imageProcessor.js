@@ -36,6 +36,12 @@ function imageProcessor(filename) {
         resizeWorker.on("error", (error) => {
           reject(new Error(error.message));
         });
+
+        resizeWorker.on("exit", (code) => {
+          if (code !== 0) {
+            reject(new Error("Exited with status code " + code));
+          }
+        });
       } catch (error) {
         reject(error);
       }
