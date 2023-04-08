@@ -19,6 +19,12 @@ function imageProcessor(filename) {
         const resizeWorker = Worker(pathToResizeWorker, {
           workerData: { source: sourcePath, destination: resizedDestination },
         });
+        const monochromeWorker = Worker(pathToMonochromeWorker, {
+          workerData: {
+            source: sourcePath,
+            destination: monochromeDestination,
+          },
+        });
       } catch (error) {
         reject(error);
       }
