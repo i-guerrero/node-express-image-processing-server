@@ -7,7 +7,7 @@ const router = Router();
 
 const storage = multer.diskStorage({
   destination: "api/uploads/",
-  filename: filename,
+  filename,
 });
 
 const upload = multer({
